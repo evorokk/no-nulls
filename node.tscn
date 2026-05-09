@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bjqqg0nkpmv31"]
+
+[ext_resource type="PackedScene" uid="uid://twyjs2nygm05" path="res://resources/objects/player.tscn" id="1_sy5k4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j2q8x"]
+
+[node name="Node" type="Node" unique_id=162413662]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1911949505]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=1709557144]
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=861492393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D" unique_id=1334763839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, 5)
+use_collision = true
+size = Vector3(4, 1, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D" unique_id=101316648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3.5, -12)
+use_collision = true
+size = Vector3(4, 6, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D" unique_id=1907415231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3.5, -13)
+use_collision = true
+size = Vector3(4, 6, 1)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Node3D" unique_id=1271794641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/RigidBody3D" unique_id=1731126007]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/RigidBody3D" unique_id=1479377825]
+shape = SubResource("SphereShape3D_j2q8x")
+
+[node name="Player" parent="." unique_id=1985058998 instance=ExtResource("1_sy5k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.333219, 0.49999976, -0.21466446)
