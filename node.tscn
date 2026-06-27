@@ -2,13 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://twyjs2nygm05" path="res://resources/objects/player.tscn" id="1_sy5k4"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sy5k4"]
+albedo_color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_j2q8x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2q8x"]
+sky_top_color = Color(0.06220995, 0.3934632, 0.61153334, 1)
+sky_horizon_color = Color(0.50831807, 0.5981742, 0.63871413, 1)
+
+[sub_resource type="Sky" id="Sky_112p8"]
+sky_material = SubResource("ProceduralSkyMaterial_j2q8x")
+
+[sub_resource type="Environment" id="Environment_e2u21"]
+background_mode = 2
+sky = SubResource("Sky_112p8")
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_normalized = true
 
 [node name="Node" type="Node" unique_id=162413662]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1911949505]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=1709557144]
+material_override = SubResource("StandardMaterial3D_sy5k4")
 use_collision = true
 size = Vector3(50, 1, 50)
 
@@ -38,6 +58,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/RigidBody3D" unique_id=1479377825]
 shape = SubResource("SphereShape3D_j2q8x")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=367208507]
+environment = SubResource("Environment_e2u21")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=794617483]
+transform = Transform3D(1, 0, 0, 0, -0.83981884, 0.54286677, 0, -0.54286677, -0.83981884, 0, 7, 0)
+shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1985058998 instance=ExtResource("1_sy5k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.333219, 0.49999976, -0.21466446)
